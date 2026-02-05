@@ -6,7 +6,7 @@
 
 
 
-&nbsp;About the Project
+&nbsp; ## About the Project
 
 The Bug Tracker System is a full-stack web application developed to streamline the process of tracking, managing, and resolving software bugs and tasks within a project. It provides a centralized platform where teams can collaborate effectively by creating projects, reporting issues, assigning responsibilities, and monitoring progress in real time.
 
@@ -20,7 +20,7 @@ The Bug Tracker System closely mimics real-world Agile and Scrum practices, maki
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-🎯 Aim of the Project
+## 🎯 Aim of the Project
 
 The primary aim of the Bug Tracker System is to design and develop a centralized, secure, and user-friendly application that helps software teams efficiently manage bugs and tasks throughout the software development lifecycle.
 
@@ -44,7 +44,7 @@ The project aims to:
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-📝 Project Introduction
+## 📝 Project Introduction
 
 In modern software development environments, managing bugs and tasks using manual methods such as spreadsheets or email communication often leads to miscommunication, lack of visibility, delayed issue resolution, and missed deadlines. As projects grow in size and team members increase, the need for a structured and reliable issue tracking system becomes essential.
 
@@ -54,7 +54,7 @@ By implementing a Kanban-based workflow, the application allows teams to visuali
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-📖 Project Summary
+## 📖 Project Summary
 
 The Bug Tracker application is a full-stack solution designed to efficiently manage software bugs and tasks across projects. It provides a secure and structured environment where users can collaborate, track progress, and maintain accountability throughout the development lifecycle.
 
@@ -110,10 +110,10 @@ This architecture improves **scalability, maintainability, and security** by cle
 
 
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 
-🔙 Backend
+### 🔙 Backend
 
 Java 17
 Used as the core programming language for building a stable, high-performance backend with long-term support features.
@@ -136,7 +136,7 @@ Relational databases used to persist application data such as users, projects, i
 Swagger (API Documentation)
 Provides interactive API documentation, making it easy to test and understand backend endpoints.
 
-🔜 Frontend
+### 🔜 Frontend
 
 
 React
@@ -155,7 +155,7 @@ Drag & Drop API
 Implements Kanban board functionality, allowing users to move issues between workflow stages visually.
 
 
-⚙️ Tools
+###⚙️ Tools
 
 Git & GitHub
 Used for version control, source code management, and collaboration.
@@ -168,9 +168,9 @@ Used for deploying backend services and hosting the application in a cloud envir
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-👥 Use Cases
+## 👥 Use Cases
 
-1\. User Authentication
+###1\. User Authentication
 
 The User Authentication module ensures that only authorized users can access the Bug Tracker application and perform actions based on their permissions. Security is implemented using JWT (JSON Web Token) authentication.
 
@@ -192,7 +192,7 @@ Key Functionality:
 
 
 
-2\. Project Management
+###2\. Project Management
 
 The Project Management module allows users to organize work by creating and managing projects within the Bug Tracker system. Each project acts as a container for issues, team members, and workflows.
 
@@ -212,7 +212,7 @@ Key Functionality:
 
 
 
-3\. Issue Management
+###3\. Issue Management
 
 The Issue Management module is the core functionality of the Bug Tracker system, responsible for handling the complete lifecycle of bugs and tasks within a project. It ensures that issues are properly recorded, tracked, and resolved in an organized manner.
 
@@ -232,7 +232,7 @@ Key Functionality:
 
 
 
-4\. Kanban Workflow
+###4\. Kanban Workflow
 
 The Kanban Workflow module provides a visual and interactive way to track the progress of issues throughout their lifecycle. It helps teams understand the current state of work at a glance and manage tasks more efficiently.
 
@@ -256,7 +256,7 @@ o	DONE – Completed and resolved issues
 
 
 
-5\. Authorization
+###5\. Authorization
 
 The Authorization module ensures that users can perform actions only within the limits of their assigned roles and permissions. This helps maintain data integrity, security, and accountability across the Bug Tracker system.
 
@@ -282,13 +282,13 @@ o	Overseeing overall project activity
 
 
 
-🖼️ Screenshots \& Functionality Explanation
+##🖼️ Screenshots \& Functionality Explanation
 
 
 
 
 
-&nbsp;Register page
+&nbsp; ### Register page
 
 
 
@@ -331,7 +331,7 @@ On successful registration, the user is allowed to log in to the application.
 
 
 
-Login Page 
+## Login Page 
 
 
 
@@ -371,7 +371,7 @@ Functionality:
 
 
 
-Dashboard
+## Dashboard
 
 <img src="./screenshots/dashboard/Dashboard.png" width="800"/>
 
@@ -398,7 +398,7 @@ Functionality:
 
 
 
-Create Project Option (Dashboard)
+## Create Project Option (Dashboard)
 <img src="./screenshots/dashboard/CreateProjectOption.png" width="800"/>
 
 <img src="./screenshots/dashboard/ProjectCreatedSuccessfully.png" width="800"/>
@@ -432,7 +432,7 @@ o	Project description
 
 
 
-Logout Option (Dashboard)
+## Logout Option (Dashboard)
 
 <img src="./screenshots/dashboard/Logout.png" width="800"/>
 
@@ -464,7 +464,7 @@ o	Resets user-related state data in the frontend.
 
 
 
-Delete Project Option
+## Delete Project Option
 
 <img src="./screenshots/dashboard/ProjectDeleteOption.png" width="800"/>
 
@@ -493,7 +493,7 @@ Functionality:
 
 
 
-Open Board Option
+## Open Board Option
 
 <img src="./screenshots/dashboard/OpenBoardOption.png" width="800"/>
 
@@ -521,7 +521,7 @@ o	DONE
 
 
 
-Issue Creation
+## Issue Creation
 <img src="./screenshots/kanban/CreateIssueOption.png" width="800"/>
 
 <img src="./screenshots/kanban/CreateIssueBox.png" width="800"/>
@@ -559,7 +559,7 @@ o	Assignee – the team member responsible for resolving the issue
 
 
 
-Kanban Board
+## Kanban Board
 
 <img src="./screenshots/kanban/KanbanBoard.png" width="800"/>
 
@@ -596,7 +596,7 @@ o	DONE
 
 
 
-Comments Option
+## Comments Option
 
 <img src="./screenshots/kanban/Comments%20Option.png" width="800"/>
 
@@ -624,7 +624,7 @@ Functionality:
 
 
 
-Edit Issue Option
+## Edit Issue Option
 
 <img src="./screenshots/kanban/EditIssueOption.png" width="800"/>
 
@@ -664,7 +664,7 @@ o	Status (if permitted)
 
 
 
-Delete Issue Option
+## Delete Issue Option
 
 <img src="./screenshots/kanban/DeleteIssueOption.png" width="800"/>
 
@@ -690,7 +690,7 @@ Functionality:
 
 
 
-Minimize \& Maximize Issue Option
+## Minimize \& Maximize Issue Option
 
 <img src="./screenshots/kanban/MaximizeAndMinimizeIssueOption.png" width="800"/>
 
@@ -723,7 +723,7 @@ o	Comments and actions (Edit/Delete)
 
 
 
-Issue Assign Option
+## Issue Assign Option
 
 <img src="./screenshots/kanban/AssignIssueOption.png" width="800"/>
 
@@ -747,7 +747,7 @@ Functionality:
 
 
 
-Search Issues
+## Search Issues
 
 <img src="./screenshots/filters/SearchIssueOption.png" width="800"/>
 
@@ -773,23 +773,23 @@ o	Keywords present in the description
 
 
 
-Filters
+## Filters
 
 The filter dropdowns allow users to narrow down issues based on specific criteria.
 
 
 
-Filter by Status
+### Filter by Status
 
 <img src="./screenshots/filters/FilterbyStatus.png" width="800"/>
 
 
-Filter by Priority
+### Filter by Priority
 
 <img src="./screenshots/filters/FilterbyPriority.png" width="800"/>
 
 
-Filter by Assignee
+### Filter by Assignee
 
 <img src="./screenshots/filters/FilterbyAssignee.png" width="800"/>
 
@@ -799,7 +799,7 @@ Filter by Assignee
 
 
 
-Invite Members Option
+## Invite Members Option
 
 
 <img src="./screenshots/members/InviteMembersOption.png" width="800"/>
@@ -832,7 +832,7 @@ o	Assigned role (if applicable)
 
 
 
-🚀 Future Enhancements
+## 🚀 Future Enhancements
 
 
 
@@ -856,7 +856,7 @@ These enhancements would make the Bug Tracker system more robust, scalable, and 
 
 
 
-✅ Conclusion
+## ✅ Conclusion
 
 
 
