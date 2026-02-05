@@ -87,88 +87,33 @@ The Bug Tracker System follows a 3-Tier Architecture consisting of:
 This layered architecture ensures separation of concerns, scalability, security, and maintainability, which is commonly used in real-world enterprise applications.
 
 
+User
+  │
+  ▼
+Web Browser
+  │   (HTTP / HTTPS)
+  ▼
+React Frontend
+  ├─ Login / Register
+  ├─ Dashboard
+  ├─ Kanban Board
+  └─ Filters & Search
+  │
+  ▼   (REST APIs + JWT)
+Spring Boot Backend
+  ├─ Controllers
+  ├─ Services
+  ├─ Security (JWT)
+  └─ Business Logic
+  │
+  ▼   (JPA / Hibernate)
+Database (MySQL / PostgreSQL)
+  ├─ Users
+  ├─ Projects
+  ├─ Issues
+  ├─ Comments
+  └─ Roles
 
-+-------------------+
-
-|   Client (User)   |
-
-|  Web Browser      |
-
-+---------+---------+
-
-&nbsp;         |
-
-&nbsp;         | HTTP / HTTPS
-
-&nbsp;         v
-
-+-------------------+
-
-|   Frontend        |
-
-|   React App       |
-
-|-------------------|
-
-| • Login/Register  |
-
-| • Dashboard       |
-
-| • Kanban Board    |
-
-| • Filters/Search  |
-
-+---------+---------+
-
-&nbsp;         |
-
-&nbsp;         | REST API Calls (Axios + JWT)
-
-&nbsp;         v
-
-+-------------------+
-
-|   Backend         |
-
-|   Spring Boot     |
-
-|-------------------|
-
-| • Controllers    |
-
-| • Services       |
-
-| • Security (JWT) |
-
-| • Business Logic |
-
-+---------+---------+
-
-&nbsp;         |
-
-&nbsp;         | JPA / Hibernate
-
-&nbsp;         v
-
-+-------------------+
-
-|   Database        |
-
-| MySQL/PostgreSQL |
-
-|-------------------|
-
-| • Users           |
-
-| • Projects        |
-
-| • Issues          |
-
-| • Comments        |
-
-| • Roles           |
-
-+-------------------+
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
@@ -176,41 +121,60 @@ This layered architecture ensures separation of concerns, scalability, security,
 
 🛠️ Tech Stack
 
+
+
 🔙 Backend
 
-•	Java 17
+Java 17
+Used as the core programming language for building a stable, high-performance backend with long-term support features.
 
-•	Spring Boot
+Spring Boot
+Simplifies backend development by providing auto-configuration, embedded server support, and rapid REST API development.
 
-•	Spring Security
+Spring Security
+Handles authentication and authorization, protecting APIs and enforcing role-based access control across the application.
 
-•	JWT (JSON Web Token)
+JWT (JSON Web Token)
+Enables secure, stateless authentication by generating tokens after login and validating them for every protected request.
 
-•	JPA / Hibernate
+JPA / Hibernate
+Used for ORM (Object Relational Mapping) to map Java entities to database tables and handle CRUD operations efficiently.
 
-•	MySQL / PostgreSQL
+MySQL / PostgreSQL
+Relational databases used to persist application data such as users, projects, issues, comments, and roles.
 
-•	Swagger (API Documentation)
+Swagger (API Documentation)
+Provides interactive API documentation, making it easy to test and understand backend endpoints.
 
 🔜 Frontend
 
-•	React
 
-•	Axios
+React
+Used to build a dynamic, component-based user interface with efficient state management.
 
-•	React Hooks
+Axios
+Handles HTTP communication between the frontend and backend, including sending JWT tokens with secured requests.
 
-•	HTML5 \& CSS3
+React Hooks
+Enables state and lifecycle management in functional components, improving code readability and reuse.
 
-•	Drag \& Drop API
+HTML5 & CSS3
+Used to structure and style the user interface, ensuring responsiveness and clean layouts.
+
+Drag & Drop API
+Implements Kanban board functionality, allowing users to move issues between workflow stages visually.
+
 
 ⚙️ Tools
 
-•	Git \& GitHub
+Git & GitHub
+Used for version control, source code management, and collaboration.
 
-•	Postman
+Postman
+Helps in testing and validating REST APIs during development.
 
-•	Render / Railway (Deployment)
+Render / Railway (Deployment)
+Used for deploying backend services and hosting the application in a cloud environment.
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
@@ -341,12 +305,9 @@ o	Overseeing overall project activity
 The Register Page allows new users to create an account in the Bug Tracker system. It ensures controlled and secure onboarding of users into the application.
 
 
+<img src="./screenshots/auth/RegisterPage.png" width="800"/>
 
-\[Image: screenshots/auth/RegisterPage.png]
-
-
-
-\[Image: screenshots/auth/RegisterPageData.png]
+<img src="./screenshots/auth/RegisterPageData.png" width="800"/>
 
 
 
@@ -384,9 +345,9 @@ Login Page
 
 
 
-\[Image: screenshots/auth/LoginPage.png]
+<img src="./screenshots/auth/LoginPage.png" width="800"/>
 
-\[Image: screenshots/auth/LoginPageData.png]
+<img src="./screenshots/auth/LoginPageData.png" width="800"/>
 
 
 
@@ -422,7 +383,8 @@ Functionality:
 
 Dashboard
 
-\[Image: screenshots/dashboard/Dashboard.png]
+<img src="./screenshots/dashboard/Dashboard.png" width="800"/>
+
 
 
 
@@ -447,13 +409,9 @@ Functionality:
 
 
 Create Project Option (Dashboard)
+<img src="./screenshots/dashboard/CreateProjectOption.png" width="800"/>
 
-\[Image: screenshots/dashboard/CreateProjectOption.png]
-
-
-
-\[Image: screenshots/dashboard/ProjectCreatedSuccessfully.png]
-
+<img src="./screenshots/dashboard/ProjectCreatedSuccessfully.png" width="800"/>
 
 
 Functionality:
@@ -486,9 +444,9 @@ o	Project description
 
 Logout Option (Dashboard)
 
-\[Image: screenshots/dashboard/Logout.png]
+<img src="./screenshots/dashboard/Logout.png" width="800"/>
 
-\[Image: screenshots/auth/LoginPage.png]
+<img src="./screenshots/auth/LoginPage.png" width="800"/>
 
 
 
@@ -518,12 +476,9 @@ o	Resets user-related state data in the frontend.
 
 Delete Project Option
 
-\[Image: screenshots/dashboard/ProjectDeleteOption.png]
+<img src="./screenshots/dashboard/ProjectDeleteOption.png" width="800"/>
 
-
-
-\[Image: screenshots/dashboard/ProjectSuccessfullyDeleted.png]
-
+<img src="./screenshots/dashboard/ProjectSuccessfullyDeleted.png" width="800"/>
 
 
 Functionality:
@@ -550,7 +505,7 @@ Functionality:
 
 Open Board Option
 
-\[Image: screenshots/dashboard/OpenBoardOption.png]
+<img src="./screenshots/dashboard/OpenBoardOption.png" width="800"/>
 
 
 
@@ -577,15 +532,11 @@ o	DONE
 
 
 Issue Creation
+<img src="./screenshots/kanban/CreateIssueOption.png" width="800"/>
 
-\[Image: screenshots/kanban/CreateIssueOption.png]
+<img src="./screenshots/kanban/CreateIssueBox.png" width="800"/>
 
-\[Image: screenshots/kanban/CreateIssueBox.png]
-
-
-
-\[Image: screenshots/kanban/IssueCreatedSuccessfully.png]
-
+<img src="./screenshots/kanban/IssueCreatedSuccessfully.png" width="800"/>
 
 
 
@@ -620,12 +571,11 @@ o	Assignee – the team member responsible for resolving the issue
 
 Kanban Board
 
-\[Image: screenshots/kanban/KanbanBoard.png]
+<img src="./screenshots/kanban/KanbanBoard.png" width="800"/>
 
-\[Image: screenshots/kanban/KanbanBeforeDragAndDrop.png]
+<img src="./screenshots/kanban/KanbanBeforeDragAndDrop.png" width="800"/>
 
-\[Image: screenshots/kanban/KanbanAfterDragAndDrop.png]
-
+<img src="./screenshots/kanban/KanbanAfterDragAndDrop.png" width="800"/>
 
 
 
@@ -658,10 +608,9 @@ o	DONE
 
 Comments Option
 
-\[Image: screenshots/kanban/CommentsOption.png]
+<img src="./screenshots/kanban/CommentsOption.png" width="800"/>
 
-\[Image: screenshots/kanban/CommentsAddedSuccessfully.png]
-
+<img src="./screenshots/kanban/CommentsAddedSuccessfully.png" width="800"/>
 
 
 
@@ -686,11 +635,11 @@ Functionality:
 
 Edit Issue Option
 
-\[Image: screenshots/kanban/EditIssueOption.png]
+<img src="./screenshots/kanban/EditIssueOption.png" width="800"/>
 
-\[Image: screenshots/kanban/EditIssueOptionBox.png]
+<img src="./screenshots/kanban/EditIssueOptionBox.png" width="800"/>
 
-\[Image: screenshots/kanban/IssueEditedSuccessfully.png]
+<img src="./screenshots/kanban/IssueEditedSuccessfully.png" width="800"/>
 
 
 
@@ -726,11 +675,9 @@ o	Status (if permitted)
 
 Delete Issue Option
 
-\[Image: screenshots/kanban/DeleteIssueOption.png]
+<img src="./screenshots/kanban/DeleteIssueOption.png" width="800"/>
 
-
-
-\[Image: screenshots/kanban/DeleteIssueOptionBox.png]
+<img src="./screenshots/kanban/DeleteIssueOptionBox.png" width="800"/>
 
 
 
@@ -754,8 +701,7 @@ Functionality:
 
 Minimize \& Maximize Issue Option
 
-\[Image: screenshots/kanban/MaximizeAndMinimizeIssueOption.png]
-
+<img src="./screenshots/kanban/MaximizeAndMinimizeIssueOption.png" width="800"/>
 
 
 Functionality:
@@ -788,7 +734,7 @@ o	Comments and actions (Edit/Delete)
 
 Issue Assign Option
 
-\[Image: screenshots/kanban/AssignIssueOption.png]
+<img src="./screenshots/kanban/AssignIssueOption.png" width="800"/>
 
 
 
@@ -812,7 +758,7 @@ Functionality:
 
 Search Issues
 
-\[Image: screenshots/filters/SearchIssueOption.png]
+<img src="./screenshots/filters/SearchIssueOption.png" width="800"/>
 
 
 
@@ -844,19 +790,18 @@ The filter dropdowns allow users to narrow down issues based on specific criteri
 
 Filter by Status
 
-\[Image: screenshots/filters/FilterByStatus.png]
+<img src="./screenshots/filters/FilterByStatus.png" width="800"/>
 
 
 
 Filter by Priority
 
-\[Image: screenshots/filters/FilterByPriority.png]
-
+<img src="./screenshots/filters/FilterByPriority.png" width="800"/>
 
 
 Filter by Assignee
 
-\[Image: screenshots/filters/FilterByAssignee.png]
+<img src="./screenshots/filters/FilterByAssignee.png" width="800"/>
 
 
 
@@ -867,16 +812,11 @@ Filter by Assignee
 Invite Members Option
 
 
+<img src="./screenshots/members/InviteMembersOption.png" width="800"/>
 
-\[Image: screenshots/members/InviteMembersOption.png]
+<img src="./screenshots/members/InviteMemberOptionBox.png" width="800"/>
 
-
-
-\[Image: screenshots/members/InviteMemberOptionBox.png]
-
-
-
-\[Image: screenshots/members/InviteMemberSuccessfully.png]
+<img src="./screenshots/members/InviteMemberSuccessfully.png" width="800"/>
 
 
 
