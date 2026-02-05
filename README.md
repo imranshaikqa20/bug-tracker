@@ -1,4 +1,6 @@
-🐞 Bug Tracker
+<h1 align="center">🐞 Bug Tracker</h1>
+
+
 
 
 
@@ -73,54 +75,42 @@ The application:
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 
+## 🏗️ System Architecture
 
-🏗️ System Architecture 
+The Bug Tracker System follows a **3-Tier Architecture**, commonly used in enterprise applications.
 
-The Bug Tracker System follows a 3-Tier Architecture consisting of:
+### 🔹 Presentation Layer (Frontend)
+- User interacts through a Web Browser
+- Built using **React**
+- Provides:
+  - Login & Registration
+  - Dashboard
+  - Kanban Board
+  - Filters and Search
 
-1\.	Presentation Layer (Frontend)
+### 🔹 Application Layer (Backend)
+- Built using **Spring Boot**
+- Exposes secured REST APIs
+- Responsible for:
+  - Request handling (Controllers)
+  - Business logic (Services)
+  - Authentication & Authorization (JWT)
 
-2\.	Application Layer (Backend)
+### 🔹 Data Layer (Database)
+- Uses **MySQL / PostgreSQL**
+- Manages persistent data:
+  - Users
+  - Projects
+  - Issues
+  - Comments
+  - Roles
 
-3\.	Data Layer (Database)
-
-This layered architecture ensures separation of concerns, scalability, security, and maintainability, which is commonly used in real-world enterprise applications.
-
-
-User
-  │
-  ▼
-Web Browser
-  │   (HTTP / HTTPS)
-  ▼
-React Frontend
-  ├─ Login / Register
-  ├─ Dashboard
-  ├─ Kanban Board
-  └─ Filters & Search
-  │
-  ▼   (REST APIs + JWT)
-Spring Boot Backend
-  ├─ Controllers
-  ├─ Services
-  ├─ Security (JWT)
-  └─ Business Logic
-  │
-  ▼   (JPA / Hibernate)
-Database (MySQL / PostgreSQL)
-  ├─ Users
-  ├─ Projects
-  ├─ Issues
-  ├─ Comments
-  └─ Roles
-
-
+This architecture improves **scalability, maintainability, and security** by clearly separating responsibilities.
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 
 
 🛠️ Tech Stack
-
 
 
 🔙 Backend
@@ -608,7 +598,8 @@ o	DONE
 
 Comments Option
 
-<img src="./screenshots/kanban/CommentsOption.png" width="800"/>
+<img src="./screenshots/kanban/Comments%20Option.png" width="800"/>
+
 
 <img src="./screenshots/kanban/CommentsAddedSuccessfully.png" width="800"/>
 
@@ -790,18 +781,17 @@ The filter dropdowns allow users to narrow down issues based on specific criteri
 
 Filter by Status
 
-<img src="./screenshots/filters/FilterByStatus.png" width="800"/>
-
+<img src="./screenshots/filters/FilterbyStatus.png" width="800"/>
 
 
 Filter by Priority
 
-<img src="./screenshots/filters/FilterByPriority.png" width="800"/>
+<img src="./screenshots/filters/FilterbyPriority.png" width="800"/>
 
 
 Filter by Assignee
 
-<img src="./screenshots/filters/FilterByAssignee.png" width="800"/>
+<img src="./screenshots/filters/FilterbyAssignee.png" width="800"/>
 
 
 
