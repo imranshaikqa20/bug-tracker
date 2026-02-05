@@ -5,8 +5,7 @@
 
 
 
-
-&nbsp; ## About the Project
+ ##  About the Project
 
 The Bug Tracker System is a full-stack web application developed to streamline the process of tracking, managing, and resolving software bugs and tasks within a project. It provides a centralized platform where teams can collaborate effectively by creating projects, reporting issues, assigning responsibilities, and monitoring progress in real time.
 
@@ -155,7 +154,7 @@ Drag & Drop API
 Implements Kanban board functionality, allowing users to move issues between workflow stages visually.
 
 
-###⚙️ Tools
+### ⚙️ Tools
 
 Git & GitHub
 Used for version control, source code management, and collaboration.
@@ -192,7 +191,7 @@ Key Functionality:
 
 
 
-###2\. Project Management
+### 2\. Project Management
 
 The Project Management module allows users to organize work by creating and managing projects within the Bug Tracker system. Each project acts as a container for issues, team members, and workflows.
 
@@ -212,7 +211,7 @@ Key Functionality:
 
 
 
-###3\. Issue Management
+### 3\. Issue Management
 
 The Issue Management module is the core functionality of the Bug Tracker system, responsible for handling the complete lifecycle of bugs and tasks within a project. It ensures that issues are properly recorded, tracked, and resolved in an organized manner.
 
@@ -232,7 +231,7 @@ Key Functionality:
 
 
 
-###4\. Kanban Workflow
+### 4\. Kanban Workflow
 
 The Kanban Workflow module provides a visual and interactive way to track the progress of issues throughout their lifecycle. It helps teams understand the current state of work at a glance and manage tasks more efficiently.
 
@@ -256,7 +255,7 @@ o	DONE – Completed and resolved issues
 
 
 
-###5\. Authorization
+### 5\. Authorization
 
 The Authorization module ensures that users can perform actions only within the limits of their assigned roles and permissions. This helps maintain data integrity, security, and accountability across the Bug Tracker system.
 
@@ -282,13 +281,13 @@ o	Overseeing overall project activity
 
 
 
-##🖼️ Screenshots \& Functionality Explanation
+## 🖼️ Screenshots \& Functionality Explanation
 
 
 
 
 
-&nbsp; ### Register page
+ ## Register page
 
 
 
@@ -399,7 +398,9 @@ Functionality:
 
 
 ## Create Project Option (Dashboard)
-<img src="./screenshots/dashboard/CreateProjectOption.png" width="800"/>
+
+<img src="./screenshots/dashboard/CreateDashboardProjectOption.png" width="800"/>
+
 
 <img src="./screenshots/dashboard/ProjectCreatedSuccessfully.png" width="800"/>
 
