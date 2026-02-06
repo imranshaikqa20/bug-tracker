@@ -8,18 +8,18 @@ import java.util.List;
 
 public interface ProjectService {
 
-    // ✅ Create new project
-    Project create(Project project);
+    // ✅ Create project (creator becomes OWNER)
+    Project create(Project project, Long userId);
 
-    // 🔍 Find project by id
+    // 🔍 Find project
     Project findById(Long projectId);
 
-    // 📊 Dashboard: projects where user is a member
+    // 📊 Dashboard projects
     List<MyProjectResponse> getMyProjects(Long userId);
 
-    // 👥 KANBAN: project members
+    // 👥 Project members
     List<ProjectMember> getProjectMembers(Long projectId);
 
-    //delete project
+    // ❌ Delete project
     void deleteProject(Long projectId, Long userId);
 }

@@ -33,7 +33,7 @@ public class ProjectMemberServiceImpl implements ProjectMemberService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        // 🔒 FIX: Prevent duplicates (UPDATED METHOD NAME)
+        // 🔒 Prevent duplicate members
         if (projectMemberRepository.existsByProjectIdAndUserId(projectId, userId)) {
             throw new RuntimeException("User already added to project");
         }
@@ -41,7 +41,9 @@ public class ProjectMemberServiceImpl implements ProjectMemberService {
         ProjectMember member = new ProjectMember();
         member.setProject(project);
         member.setUser(user);
-        member.setRole(role != null ? role : ProjectRole.DEVELOPER);
+
+        // ✅ FIXED: default project role = MEMBER
+        member.setRole(role != null ? role : ProjectRole.MEMBER);
 
         return projectMemberRepository.save(member);
     }
@@ -51,7 +53,6 @@ public class ProjectMemberServiceImpl implements ProjectMemberService {
     // ===============================
     @Override
     public void removeMember(Long projectId, Long userId) {
-        // 🔒 FIX: UPDATED METHOD NAME
         projectMemberRepository.deleteByProjectIdAndUserId(projectId, userId);
     }
 
@@ -73,7 +74,6 @@ public class ProjectMemberServiceImpl implements ProjectMemberService {
     // ===============================
     @Override
     public boolean isMember(Long projectId, Long userId) {
-        // 🔒 FIX: UPDATED METHOD NAME
         return projectMemberRepository.existsByProjectIdAndUserId(projectId, userId);
     }
 }

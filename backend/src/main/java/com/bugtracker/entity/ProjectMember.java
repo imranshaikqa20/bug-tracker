@@ -29,7 +29,7 @@ public class ProjectMember extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ProjectRole role = ProjectRole.DEVELOPER;
+    private ProjectRole role = ProjectRole.MEMBER; // ✅ FIXED (was DEVELOPER)
 
     // 🔥 VERY IMPORTANT for Set<ProjectMember>
     @Override

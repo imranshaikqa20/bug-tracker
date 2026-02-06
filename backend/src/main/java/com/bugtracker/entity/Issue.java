@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "issues")
 @Getter
@@ -23,15 +25,24 @@ public class Issue extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Priority priority = Priority.MEDIUM;
 
-    // 🔥 FIX 1: rename to match frontend
-    // 🔥 FIX 2: EAGER fetch so JSON contains data
+    // ✅ Assigned user
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "assigned_to")
     @JsonIgnoreProperties({"password", "projects"})
     private User assignee;
 
+    // ✅ Project mapping
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     @JsonIgnoreProperties({"issues"})
     private Project project;
+
+    // 🔥🔥 FIX FOR DELETE ISSUE CARD 🔥🔥
+    @OneToMany(
+            mappedBy = "issue",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JsonIgnoreProperties({"issue"})
+    private List<Comment> comments;
 }

@@ -34,14 +34,27 @@ public interface ProjectMemberRepository
             Long userId
     );
 
-    // 🔐 ROLE CHECK (OWNER / MEMBER)
+    // ===============================
+    // 🔐 ROLE CHECKS (🔥 IMPORTANT)
+    // ===============================
+
+    // ✅ FIX: Used by ProjectServiceImpl (OWNER check)
+    boolean existsByProjectIdAndUserIdAndRole(
+            Long projectId,
+            Long userId,
+            ProjectRole role
+    );
+
+    // (Optional but useful: JWT/email-based checks)
     boolean existsByProjectIdAndUserEmailAndRole(
             Long projectId,
             String email,
             ProjectRole role
     );
 
-    // Remove a user from a project
+    // ===============================
+    // ❌ REMOVE MEMBER
+    // ===============================
     @Modifying
     @Transactional
     void deleteByProjectIdAndUserId(
@@ -57,7 +70,7 @@ public interface ProjectMemberRepository
     void deleteByProjectId(Long projectId);
 
     // ===============================
-    // 📊 DASHBOARD – MY PROJECTS (✅ FIXED)
+    // 📊 DASHBOARD – MY PROJECTS
     // ===============================
     @Query("""
         SELECT new com.bugtracker.dto.MyProjectResponse(

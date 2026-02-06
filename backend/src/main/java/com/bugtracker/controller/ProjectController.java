@@ -4,8 +4,6 @@ import com.bugtracker.dto.MyProjectResponse;
 import com.bugtracker.dto.ProjectMemberResponse;
 import com.bugtracker.dto.ProjectRequest;
 import com.bugtracker.entity.Project;
-import com.bugtracker.entity.ProjectMember;
-import com.bugtracker.entity.ProjectRole;
 import com.bugtracker.entity.User;
 import com.bugtracker.service.ProjectMemberService;
 import com.bugtracker.service.ProjectService;
@@ -15,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
 import java.util.List;
 
 @RestController
@@ -29,36 +26,33 @@ public class ProjectController {
     private final UserService userService;
 
     // ===============================
-    // ✅ CREATE PROJECT
+    // ✅ CREATE PROJECT (OWNER AUTO)
     // ===============================
     @PostMapping
     public Project createProject(
             @RequestBody ProjectRequest request,
-            Authentication authentication) {
-
+            Authentication authentication
+    ) {
+        // 🔐 logged-in user
         User user = userService.findByEmail(authentication.getName());
 
+        // 📦 build project only (NO members here)
         Project project = new Project();
         project.setName(request.getName());
         project.setDescription(request.getDescription());
         project.setCreatedBy(user);
-        project.setProjectMembers(new HashSet<>());
 
-        ProjectMember owner = new ProjectMember();
-        owner.setProject(project);
-        owner.setUser(user);
-        owner.setRole(ProjectRole.OWNER);
-
-        project.getProjectMembers().add(owner);
-
-        return projectService.create(project);
+        // ✅ OWNER assignment happens in SERVICE
+        return projectService.create(project, user.getId());
     }
 
     // ===============================
     // 📊 DASHBOARD – MY PROJECTS
     // ===============================
     @GetMapping("/my-projects")
-    public List<MyProjectResponse> getMyProjects(Authentication authentication) {
+    public List<MyProjectResponse> getMyProjects(
+            Authentication authentication
+    ) {
         User user = userService.findByEmail(authentication.getName());
         return projectService.getMyProjects(user.getId());
     }
@@ -68,7 +62,8 @@ public class ProjectController {
     // ===============================
     @GetMapping("/{projectId}/members")
     public List<ProjectMemberResponse> getProjectMembers(
-            @PathVariable Long projectId) {
+            @PathVariable Long projectId
+    ) {
         return projectMemberService.getProjectMembers(projectId);
     }
 
@@ -78,8 +73,8 @@ public class ProjectController {
     @DeleteMapping("/{projectId}")
     public ResponseEntity<Void> deleteProject(
             @PathVariable Long projectId,
-            Authentication authentication) {
-
+            Authentication authentication
+    ) {
         User user = userService.findByEmail(authentication.getName());
 
         projectService.deleteProject(projectId, user.getId());

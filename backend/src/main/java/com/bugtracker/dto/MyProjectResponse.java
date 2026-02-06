@@ -7,19 +7,19 @@ public class MyProjectResponse {
     private Long id;
     private String name;
     private String description;
-    private ProjectRole role; // ✅ ENUM
+    private ProjectRole myRole; // ✅ clearer meaning
 
     // 🔥 REQUIRED by JPQL constructor expression
     public MyProjectResponse(
             Long id,
             String name,
             String description,
-            ProjectRole role
+            ProjectRole myRole
     ) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.role = role;
+        this.myRole = myRole;
     }
 
     // ===============================
@@ -37,7 +37,7 @@ public class MyProjectResponse {
         return description;
     }
 
-    public ProjectRole getRole() {
-        return role;
+    public ProjectRole getMyRole() {
+        return myRole;
     }
 }

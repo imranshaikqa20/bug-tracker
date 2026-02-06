@@ -4,11 +4,14 @@ import com.bugtracker.dto.MyProjectResponse;
 import com.bugtracker.entity.Project;
 import com.bugtracker.entity.ProjectMember;
 import com.bugtracker.entity.ProjectRole;
+import com.bugtracker.entity.User;
 import com.bugtracker.repository.ProjectMemberRepository;
 import com.bugtracker.repository.ProjectRepository;
+import com.bugtracker.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,13 +21,32 @@ public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectRepository projectRepository;
     private final ProjectMemberRepository projectMemberRepository;
+    private final UserRepository userRepository; // ✅ FIX
 
     // ===============================
-    // ✅ CREATE PROJECT
+    // ✅ CREATE PROJECT (OWNER ASSIGNED)
     // ===============================
     @Override
-    public Project create(Project project) {
-        return projectRepository.save(project);
+    @Transactional
+    public Project create(Project project, Long userId) {
+
+        // 1️⃣ Save project
+        Project savedProject = projectRepository.save(project);
+
+        // 2️⃣ Fetch creator
+        User ownerUser = userRepository.findById(userId)
+                .orElseThrow(() ->
+                        new EntityNotFoundException("User not found with id: " + userId));
+
+        // 3️⃣ Create OWNER membership
+        ProjectMember owner = new ProjectMember();
+        owner.setProject(savedProject);
+        owner.setUser(ownerUser);
+        owner.setRole(ProjectRole.OWNER);
+
+        projectMemberRepository.save(owner);
+
+        return savedProject;
     }
 
     // ===============================
@@ -42,7 +64,6 @@ public class ProjectServiceImpl implements ProjectService {
     // ===============================
     @Override
     public List<MyProjectResponse> getMyProjects(Long userId) {
-        // DTO-based custom query (FAST & SAFE)
         return projectMemberRepository.findMyProjects(userId);
     }
 
@@ -58,27 +79,24 @@ public class ProjectServiceImpl implements ProjectService {
     // ❌ DELETE PROJECT (OWNER ONLY)
     // ===============================
     @Override
+    @Transactional
     public void deleteProject(Long projectId, Long userId) {
 
-        Project project = projectRepository.findById(projectId)
-                .orElseThrow(() ->
-                        new EntityNotFoundException("Project not found with id: " + projectId));
-
-        // 🔐 Check OWNER permission
-        boolean isOwner = project.getProjectMembers().stream()
-                .anyMatch(member ->
-                        member.getUser().getId().equals(userId)
-                                && member.getRole() == ProjectRole.OWNER
+        boolean isOwner = projectMemberRepository
+                .existsByProjectIdAndUserIdAndRole(
+                        projectId,
+                        userId,
+                        ProjectRole.OWNER
                 );
 
         if (!isOwner) {
             throw new RuntimeException("Only project OWNER can delete this project");
         }
 
-        // 🔥 Step 1: delete members
+        // 🔥 delete members first
         projectMemberRepository.deleteByProjectId(projectId);
 
-        // 🔥 Step 2: delete project
-        projectRepository.delete(project);
+        // 🔥 delete project
+        projectRepository.deleteById(projectId);
     }
 }

@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/bugtracker
     username: postgres
-    password: xxxxxxxx
+    password: shaikimran123!@#
     driver-class-name: org.postgresql.Driver
 
   jpa:
